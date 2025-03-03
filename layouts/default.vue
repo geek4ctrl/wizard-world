@@ -1,20 +1,14 @@
 <script setup lang="ts">
 import Menubar from "primevue/menubar";
-import { ref } from "vue";
+import { useNavigationStore } from "~/stores/navigation";
+import { storeToRefs } from "pinia";
 
-const items = ref([
-  { label: "Home", icon: "pi pi-home", to: "/" },
-  { label: "Elixirs", icon: "pi pi-flask", to: "/elixirs" },
-  { label: "Houses", icon: "pi pi-building", to: "/houses" },
-  { label: "Ingredients", icon: "pi pi-apple", to: "/ingredients" },
-  { label: "Spells", icon: "pi pi-bolt", to: "/spells" },
-  { label: "Wizards", icon: "pi pi-user", to: "/wizards" },
-]);
+const navigationStore = useNavigationStore();
+const { items } = storeToRefs(navigationStore);
 </script>
 
 <template>
   <div>
-    <!-- Fixed Navigation Bar -->
     <div class="fixed top-0 left-0 w-full bg-gray-900 shadow-lg z-50">
       <div class="container mx-auto">
         <Menubar :model="items" class="text-white rounded-lg">

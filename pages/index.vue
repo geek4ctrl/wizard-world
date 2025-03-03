@@ -1,6 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+definePageMeta({
+  layout: "default",
+});
+
+</script>
 <template>
-  <NavigationBar />
+  <NavigationBar/>
 
   <div
     class="mx-auto max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl mt-4"

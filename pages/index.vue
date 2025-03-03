@@ -33,6 +33,8 @@
     </div>
   </div>
 
+  <Content/>
+
   <Footer />
 </template>
 <style></style>

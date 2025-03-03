@@ -10,20 +10,29 @@ const items = ref([
   { label: "Spells", icon: "pi pi-bolt", to: "/spells" },
   { label: "Wizards", icon: "pi pi-user", to: "/wizards" },
 ]);
-
 </script>
 
 <template>
-  <div class="card bg-gray-800 p-3 rounded-lg shadow-md">
-    <Menubar :model="items" class="bg-gray-900 text-white rounded-lg">
-      <template #item="{ item }">
-        <NuxtLink v-if="item.to" :to="item.to" class="p-menuitem-link flex items-center gap-2">
-          <i :class="item.icon"></i>
-          <span>{{ item.label }}</span>
-        </NuxtLink>
-        <span v-else class="p-menuitem-text">{{ item.label }}</span>
-      </template>
-    </Menubar>
+  <div>
+    <!-- Fixed Navigation Bar -->
+    <div class="fixed top-0 left-0 w-full bg-gray-900 shadow-lg z-50">
+      <div class="container mx-auto">
+        <Menubar :model="items" class="text-white rounded-lg">
+          <template #item="{ item }">
+            <NuxtLink v-if="item.to" :to="item.to" class="p-menuitem-link flex items-center gap-2 px-4 py-2">
+              <i :class="item.icon"></i>
+              <span>{{ item.label }}</span>
+            </NuxtLink>
+            <span v-else class="p-menuitem-text">{{ item.label }}</span>
+          </template>
+        </Menubar>
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="pt-16">
+      <slot />
+    </div>
   </div>
 </template>
 
